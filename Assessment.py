@@ -23,6 +23,6 @@ while Student_age is None: ## The code is put into a loop so if no age is given 
     else:
         break
 
-if Student_age < 5 or Student_age > 17:
+if Student_age < 5 or Student_age > 17: ## This is to test if the student is too young or too old to do the activities
     print("Sorry, but the student is not eligible due to their age. ")
     Student_eligibility = False
