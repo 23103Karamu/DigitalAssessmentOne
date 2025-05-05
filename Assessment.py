@@ -44,7 +44,7 @@ while Student_eligibility == True:
         print(i, item)
     break
 
-while Camp_number == None and Student_eligibility = True:
+while Camp_number == None and Student_eligibility == True:
     try:
         Camp_number = int(input("Which number camp do you want to go to? "))
     except ValueError:
