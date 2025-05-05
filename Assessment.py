@@ -1,6 +1,11 @@
-## The details of the students
+## Variables
 Student_name = None
 Student_age = None
+Min_age = 5
+Max_age = 17
+Transport_cost = 80
+
+## The details of the students
 Student_eligibility = True
 while Student_name is None: ## The code to get the student's name is put into a loop so if no name is given the code will repeat
     Student_name = input("What is the student's name? ")
@@ -23,6 +28,6 @@ while Student_age is None: ## The code is put into a loop so if no age is given 
     else:
         break
 
-if Student_age < 5 or Student_age > 17: ## This is to test if the student is too young or too old to do the activities
+if Student_age < Min_age or Student_age > Max_age: ## This is to test if the student is too young or too old to do the activities
     print("Sorry, but the student is not eligible due to their age. ")
     Student_eligibility = False
