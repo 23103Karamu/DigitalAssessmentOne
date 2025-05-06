@@ -19,10 +19,10 @@ while Student_name is None: ## The code to get the student's name is put into a 
 while Student_age is None: ## The code is put into a loop so if no age is given or a string is given, the code will repeat
     try:
         Student_age = int(input("What is the student's age? "))
-    except ValueError:
+    except ValueError: ## if a number isn't inputted, this code will play which will tell them to input a number
         print("Please input a number. ")
         continue
-    if Student_age <= 0 or Student_age >= 100:
+    if Student_age <= 0 or Student_age >= 100: ## if their age is below 0 or over 100, this code will play which will make them have to input a proper age
         print("Are you sure that is the student's age? ")
         Student_age = None
         continue
@@ -33,7 +33,7 @@ while Student_age is None: ## The code is put into a loop so if no age is given 
 if Student_age < Min_age or Student_age > Max_age: ## This is to test if the student is too young or too old to do the activities
     print("Sorry, but the student is not eligible due to their age. ")
     Student_eligibility = False
-else:
+else: ##if they aren't too old or too young, their eligibility is true
     Student_eligibility = True
 
 ## Choosing the camp
@@ -44,18 +44,17 @@ while Student_eligibility == True:
         print(i, item)
     break
 
-while Camp_number == None and Student_eligibility == True:
+while Camp_chosen == None and Student_eligibility == True: ## This code is in place so if the student isn't eligible, the code won't run and therefore won't waste resources
     try:
-        Camp_number = int(input("Which number camp do you want to go to? "))
-    except ValueError:
+        Camp_number = int(input("Choose a camp number do you want to go to? "))
+    except ValueError: ## If they don't input a number, it will run this code
         print("Please input a number")
         continue
-    if Camp_number < 0 or Camp_number > 3:
+    if Camp_number < 0 or Camp_number > 2: ## If they do a number that isn't there, the code will detect it, set the camp chosen to none, and continue running the loop
         print("Invalid camp choice, please try again")
         Camp_chosen = None
         continue
-    else:
+    else: ## if the number is valid and isn't an error, this code will run which will set the camp chosen and break
         Camp_chosen = Camps[Camp_number]
         print("\n")
         break
-print(Camp_chosen)
