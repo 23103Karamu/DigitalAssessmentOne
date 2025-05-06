@@ -8,6 +8,8 @@ Camp_number = None
 Camp_chosen = None
 Meal_number = None
 Meal_chosen = None
+Shuttle_y_n = None
+Shuttle_taken = None
 
 ## The details of the students
 while Student_name is None: ## The code to get the student's name is put into a loop so if no name is given the code will repeat
@@ -48,7 +50,7 @@ while Student_eligibility == True: ## if the student is eligible, they will see 
 
 while Camp_chosen == None and Student_eligibility == True: ## This code is in place so if the student isn't eligible, the code won't run and therefore won't waste resources and if they haven't chosen a camp, it will run
     try:
-        Camp_number = int(input("Choose a camp number do you want to go to "))
+        Camp_number = int(input("Choose a camp number you want to go to "))
     except ValueError: ## If they don't input a number, it will run this code
         print("Please input a number")
         continue
@@ -86,4 +88,17 @@ while Meal_chosen == None and Student_eligibility == True: ## This code is here 
         print("\n")
         break
 
+## If taking the shuttle bus
+while Shuttle_taken == None and Student_eligibility == True:
+    Shuttle_y_n = input("Do you want to take the shuttle bus? it is an extra $80 ").lower()
+    if Shuttle_y_n == "y" or Shuttle_y_n == "yes":
+        Cost = Cost + 80
+        Shuttle_taken = True
+        break
+    elif Shuttle_y_n == "n" or Shuttle_y_n == "no":
+        Shuttle_taken = False
+        break
+    else:
+        print("This is a yes or no question")
+        continue
 print(Camp_chosen.replace("$800", f"${Cost}")) ## This is code to test the replace feature and so I remember it as well
