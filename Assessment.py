@@ -10,6 +10,9 @@ Meal_number = None
 Meal_chosen = None
 Shuttle_y_n = None
 Shuttle_taken = None
+Going_to_camp = None
+GTG_y_n = None
+Student_details = []
 
 ## The details of the students
 while Student_name is None: ## The code to get the student's name is put into a loop so if no name is given the code will repeat
@@ -18,6 +21,7 @@ while Student_name is None: ## The code to get the student's name is put into a 
         print("Please input the student's name. ")
         Student_name = None
     else:
+        Student_details.append(Student_name)
         break
 
 while Student_age is None: ## The code is put into a loop so if no age is given or a string is given, the code will repeat
@@ -31,15 +35,17 @@ while Student_age is None: ## The code is put into a loop so if no age is given 
         Student_age = None
         continue
     else:
+        Student_details.append(Student_age)
         print("\n") ## This is here to split it up into sections
         break
 
 if Student_age < Min_age or Student_age > Max_age: ## This is to test if the student is too young or too old to do the activities
     print("Sorry, but the student is not eligible due to their age. ")
     Student_eligibility = False
+    Student_details.append(Student_eligibility)
 else: ##if they aren't too old or too young, their eligibility is true
     Student_eligibility = True
-
+    Student_details.append(Student_eligibility)
 ## Choosing the camp
 Camps = ["Cultural immersion, 5 days, easy, $800","Kayaking and Pancakes, 5 days, moderate, $400","Mountain biking, 4 days, difficult, $900"]
 
@@ -60,11 +66,17 @@ while Camp_chosen == None and Student_eligibility == True: ## This code is in pl
     else: ## if the number is valid and isn't an error, this code will run which will set the camp chosen and break
         if Camp_number == 0:
             Cost = 800
+            Camp_chosen = Camps[Camp_number]
+            Camp_chosen = Camp_chosen.replace(" $800", "")
         elif Camp_number == 1:
             Cost = 400
+            Camp_chosen = Camps[Camp_number]
+            Camp_chosen = Camp_chosen.replace(" $400", "")
         elif Camp_number == 2:
             Cost = 900
-        Camp_chosen = Camps[Camp_number]
+            Camp_chosen = Camps[Camp_number]
+            Camp_chosen = Camp_chosen.replace(" $900", "")
+        Student_details.append(Camp_chosen)
         print("\n")
         break
 
@@ -86,6 +98,7 @@ while Meal_chosen == None and Student_eligibility == True: ## This code is here 
     else: ## if the response is valid, this else statement will play and set the meal_chosen to the meal in Meals
         Meal_chosen = Meals[Meal_number]
         print("\n")
+        Student_details.append(Meal_chosen)
         break
 
 ## If taking the shuttle bus
@@ -93,12 +106,34 @@ while Shuttle_taken == None and Student_eligibility == True:
     Shuttle_y_n = input("Do you want to take the shuttle bus? it is an extra $80 ").lower()
     if Shuttle_y_n == "y" or Shuttle_y_n == "yes":
         Cost = Cost + 80
-        Shuttle_taken = True
+        Shuttle_taken = "shuttle bus will be taken"
+        Student_details.append(Cost)
+        Student_details.append(Shuttle_taken)
+        print("\n")
         break
     elif Shuttle_y_n == "n" or Shuttle_y_n == "no":
-        Shuttle_taken = False
+        Shuttle_taken = "shuttle bus wil not be taken"
+        Student_details.append(Cost)
+        Student_details.append(Shuttle_taken)
+        print("\n")
         break
     else:
         print("This is a yes or no question")
         continue
-print(Camp_chosen.replace("$800", f"${Cost}")) ## This is code to test the replace feature and so I remember it as well
+
+## If they will be going
+if Student_eligibility == True:
+    print(f"{Student_name}, {Student_age}, {Camp_chosen} the student's meal is {Meal_chosen}, the {Shuttle_taken}, the cost will be ${Cost}. Will the student be going (yes/no)? ")
+
+while Going_to_camp == None and Student_eligibility == True:
+    GTG_y_n = input("Will the student be going (yes or no)? ").lower()
+    if GTG_y_n == "y" or GTG_y_n == "yes":
+        print("The student will be attending the camp.")
+        Going_to_camp = True
+        Student_details.append(Going_to_camp)
+    elif GTG_y_n == "n" or GTG_y_n == "no":
+        print("The student will not be attending the camp.")
+        Going_to_camp = False
+        Student_details.append(Going_to_camp)
+    else:
+        print("This is a yes or no question")
