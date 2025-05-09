@@ -81,7 +81,7 @@ while Camp_chosen == None and Student_eligibility == True: ## This code is in pl
         break
 
 ## Choosing a meal
-Meals = ["Standard", "Vegetarian", "Vegan"] ## This is the meal options which will be printed out
+Meals = ["Standard", "Vegetarian", "Vegan", "Gluten free"] ## This is the meal options which will be printed out
 while Student_eligibility == True: ## This code is here so if the student is eligible, they will get to see the meal options
     for i, item in enumerate(Meals):
         print(i, item)
@@ -93,7 +93,7 @@ while Meal_chosen == None and Student_eligibility == True: ## This code is here 
     except ValueError: ## if a string or non-number entered, it will be reset and asked for a proper number to be inputted
         print("Please input a number") 
         continue
-    if Meal_number < 0 or Meal_number > 2: ## If the meal number is not there, it will go back to the int(input)
+    if Meal_number < 0 or Meal_number > 3: ## If the meal number is not there, it will go back to the int(input)
         print("Invalid meal choice, please try again")
     else: ## if the response is valid, this else statement will play and set the meal_chosen to the meal in Meals
         Meal_chosen = Meals[Meal_number]
