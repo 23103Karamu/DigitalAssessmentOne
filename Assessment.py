@@ -54,7 +54,7 @@ while Student_eligibility == True: ## if the student is eligible, they will see 
         print(i, item)
     break ## the code will break instead of looping after all the choices are finished printing
 
-while Camp_chosen == None and Student_eligibility == True: ## This code is in place so if the student isn't eligible, the code won't run and therefore won't waste resources and if they haven't chosen a camp, it will run
+while Camp_chosen is None and Student_eligibility == True: ## This code is in place so if the student isn't eligible, the code won't run and therefore won't waste resources and if they haven't chosen a camp, it will run
     try:
         Camp_number = int(input("Choose a camp number you want to go to "))
     except ValueError: ## If they don't input a number, it will run this code
@@ -87,7 +87,7 @@ while Student_eligibility == True: ## This code is here so if the student is eli
         print(i, item)
     break ## when it finishes printing the 3 choices, it will break instead of looping
 
-while Meal_chosen == None and Student_eligibility == True: ## This code is here so if they are eligible and haven't chosen a meal, this code will play
+while Meal_chosen is None and Student_eligibility == True: ## This code is here so if they are eligible and haven't chosen a meal, this code will play
     try:
         Meal_number = int(input("Choose a meal number that you want ")) ## When you respond, the meal_number will be set to that number and checked if availible
     except ValueError: ## if a string or non-number entered, it will be reset and asked for a proper number to be inputted
@@ -102,10 +102,10 @@ while Meal_chosen == None and Student_eligibility == True: ## This code is here 
         break
 
 ## If taking the shuttle bus
-while Shuttle_taken == None and Student_eligibility == True: ## If they are eligible and haven't chosen if they want to take the shuttle bus yet, this will run
+while Shuttle_taken is None and Student_eligibility == True: ## If they are eligible and haven't chosen if they want to take the shuttle bus yet, this will run
     Shuttle_y_n = input("Do you want to take the shuttle bus? it is an extra $80 ").lower() ## This has a .lower() as if you do it at the input, instead of question, you don't need to run it at the question which saves time
     if Shuttle_y_n == "y" or Shuttle_y_n == "yes":
-        Cost = Cost + 80 ## This chanegs the cost to be the previous cost plus 80
+        Cost = Cost + Transport_cost ## This chanegs the cost to be the previous cost plus 80
         Shuttle_taken = "shuttle bus will be taken" ## This lets them know that the shuttle bus definitely will be taken
         Student_details.append(Cost) ## This adds the cost to student details
         Student_details.append(Shuttle_taken) ## This adds if they will be taking the bus to student details
@@ -125,7 +125,7 @@ while Shuttle_taken == None and Student_eligibility == True: ## If they are elig
 if Student_eligibility == True: ## if they student is eligible and after answering every question, this will play telling them what has been chosen
     print(f"{Student_name}, {Student_age}, {Camp_chosen} the student's meal is {Meal_chosen}, the {Shuttle_taken}, the cost will be ${Cost}.") ## This is done as a print statement so when they are asked if the student will be going, this won't repeat, only the question
 
-while Going_to_camp == None and Student_eligibility == True:
+while Going_to_camp is None and Student_eligibility == True:
     GTG_y_n = input("Will the student be going (yes or no)? ").lower() ## As I said before, this is the question which will repeat if they don't answer with y, yes, n, or no
     if GTG_y_n == "y" or GTG_y_n == "yes":
         print("The student will be attending the camp.") ## This prints so they know that the program isn't broken in case they have that fear
