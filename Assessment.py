@@ -66,8 +66,8 @@ while Camp_chosen == None and Student_eligibility == True: ## This code is in pl
     else: ## if the number is valid and isn't an error, this code will run which will set the camp chosen and break
         if Camp_number == 0:
             Cost = 800
-            Camp_chosen = Camps[Camp_number]
-            Camp_chosen = Camp_chosen.replace(" $800", "")
+            Camp_chosen = Camps[Camp_number] ## This sets the Camp chosen to be from the list of camps
+            Camp_chosen = Camp_chosen.replace(" $800", "") ## This removes the cost from it so I can add it in later
         elif Camp_number == 1:
             Cost = 400
             Camp_chosen = Camps[Camp_number]
@@ -76,8 +76,8 @@ while Camp_chosen == None and Student_eligibility == True: ## This code is in pl
             Cost = 900
             Camp_chosen = Camps[Camp_number]
             Camp_chosen = Camp_chosen.replace(" $900", "")
-        Student_details.append(Camp_chosen)
-        print("\n")
+        Student_details.append(Camp_chosen) ## This adds the camp chosen to the student details list
+        print("\n") ## This clears it up and splits it off into sections
         break
 
 ## Choosing a meal
@@ -102,13 +102,13 @@ while Meal_chosen == None and Student_eligibility == True: ## This code is here 
         break
 
 ## If taking the shuttle bus
-while Shuttle_taken == None and Student_eligibility == True:
-    Shuttle_y_n = input("Do you want to take the shuttle bus? it is an extra $80 ").lower()
+while Shuttle_taken == None and Student_eligibility == True: ## If they are eligible and haven't chosen if they want to take the shuttle bus yet, this will run
+    Shuttle_y_n = input("Do you want to take the shuttle bus? it is an extra $80 ").lower() ## This has a .lower() as if you do it at the input, instead of question, you don't need to run it at the question which saves time
     if Shuttle_y_n == "y" or Shuttle_y_n == "yes":
-        Cost = Cost + 80
-        Shuttle_taken = "shuttle bus will be taken"
-        Student_details.append(Cost)
-        Student_details.append(Shuttle_taken)
+        Cost = Cost + 80 ## This chanegs the cost to be the previous cost plus 80
+        Shuttle_taken = "shuttle bus will be taken" ## This lets them know that the shuttle bus definitely will be taken
+        Student_details.append(Cost) ## This adds the cost to student details
+        Student_details.append(Shuttle_taken) ## This adds if they will be taking the bus to student details
         print("\n")
         break
     elif Shuttle_y_n == "n" or Shuttle_y_n == "no":
@@ -118,17 +118,17 @@ while Shuttle_taken == None and Student_eligibility == True:
         print("\n")
         break
     else:
-        print("This is a yes or no question")
+        print("This is a yes or no question") ## If they don't do n, no, y, yes this will play
         continue
 
 ## If they will be going
-if Student_eligibility == True:
-    print(f"{Student_name}, {Student_age}, {Camp_chosen} the student's meal is {Meal_chosen}, the {Shuttle_taken}, the cost will be ${Cost}. Will the student be going (yes/no)? ")
+if Student_eligibility == True: ## if they student is eligible and after answering every question, this will play telling them what has been chosen
+    print(f"{Student_name}, {Student_age}, {Camp_chosen} the student's meal is {Meal_chosen}, the {Shuttle_taken}, the cost will be ${Cost}.") ## This is done as a print statement so when they are asked if the student will be going, this won't repeat, only the question
 
 while Going_to_camp == None and Student_eligibility == True:
-    GTG_y_n = input("Will the student be going (yes or no)? ").lower()
+    GTG_y_n = input("Will the student be going (yes or no)? ").lower() ## As I said before, this is the question which will repeat if they don't answer with y, yes, n, or no
     if GTG_y_n == "y" or GTG_y_n == "yes":
-        print("The student will be attending the camp.")
+        print("The student will be attending the camp.") ## This prints so they know that the program isn't broken in case they have that fear
         Going_to_camp = True
         Student_details.append(Going_to_camp)
     elif GTG_y_n == "n" or GTG_y_n == "no":
