@@ -56,7 +56,7 @@ while Student_eligibility == True: ## if the student is eligible, they will see 
 
 while Camp_chosen is None and Student_eligibility == True: ## This code is in place so if the student isn't eligible, the code won't run and therefore won't waste resources and if they haven't chosen a camp, it will run
     try:
-        Camp_number = int(input("Choose a camp number you want to go to "))
+        Camp_number = int(input("Choose a camp number you want to go to: "))
     except ValueError: ## If they don't input a number, it will run this code
         print("Please input a number")
         continue
@@ -89,7 +89,7 @@ while Student_eligibility == True: ## This code is here so if the student is eli
 
 while Meal_chosen is None and Student_eligibility == True: ## This code is here so if they are eligible and haven't chosen a meal, this code will play
     try:
-        Meal_number = int(input("Choose a meal number that you want ")) ## When you respond, the meal_number will be set to that number and checked if availible
+        Meal_number = int(input("Choose a meal number that you want: ")) ## When you respond, the meal_number will be set to that number and checked if availible
     except ValueError: ## if a string or non-number entered, it will be reset and asked for a proper number to be inputted
         print("Please input a number") 
         continue
@@ -103,7 +103,7 @@ while Meal_chosen is None and Student_eligibility == True: ## This code is here 
 
 ## If taking the shuttle bus
 while Shuttle_taken is None and Student_eligibility == True: ## If they are eligible and haven't chosen if they want to take the shuttle bus yet, this will run
-    Shuttle_y_n = input("Do you want to take the shuttle bus? it is an extra $80 ").lower() ## This has a .lower() as if you do it at the input, instead of question, you don't need to run it at the question which saves time
+    Shuttle_y_n = input("Do you want to take the shuttle bus? it is an extra $80: ").lower() ## This has a .lower() as if you do it at the input, instead of question, you don't need to run it at the question which saves time
     if Shuttle_y_n == "y" or Shuttle_y_n == "yes":
         Cost = Cost + Transport_cost ## This chanegs the cost to be the previous cost plus 80
         Shuttle_taken = "shuttle bus will be taken" ## This lets them know that the shuttle bus definitely will be taken
@@ -112,7 +112,7 @@ while Shuttle_taken is None and Student_eligibility == True: ## If they are elig
         print("\n")
         break
     elif Shuttle_y_n == "n" or Shuttle_y_n == "no":
-        Shuttle_taken = "shuttle bus wil not be taken"
+        Shuttle_taken = "shuttle bus will not be taken"
         Student_details.append(Cost)
         Student_details.append(Shuttle_taken)
         print("\n")
