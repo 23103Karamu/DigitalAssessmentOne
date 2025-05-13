@@ -53,7 +53,7 @@ else: ##if they aren't too old or too young, their eligibility is true
     Student_details.append(Student_eligibility)
 
 while Camp_leader_eligibility == True and Student_eligibility == True: ## Camp leader offered
-    Camp_leader_y_n = input("Would the student like the chance to be camp leader? (yes/no) ")
+    Camp_leader_y_n = input("Would the student like the chance to be camp leader? (yes/no) ").lower()
     if Camp_leader_y_n == "y" or Camp_leader_y_n == "yes":
         print("The student will have the chance to be camp leader.") ## This prints so they know that the program isn't broken in case they have that fear
         Camp_leader = "The student might be chosen as the camp leader." 
